@@ -14,11 +14,10 @@
     };
     bootstrap = function(port){
       breach.init(function(){
+        breach.register('.*', 'keybindings');
         breach.expose('init', function(src, args, cb_){
           console.log('mod_vim (Vimperator port for Breach)');
-          console.log("Listening on " + port);
-          breach.module('core').on('tabs:keyboard', keybindings);
-          return breach.module('core').on('controls:keyboard', keybindings);
+          return console.log("Listening on " + port);
         });
         return breach.expose('kill', function(args, cb_){
           return common.exit(0);

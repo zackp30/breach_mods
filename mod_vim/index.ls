@@ -23,11 +23,10 @@ class Mod_Vim
 
   bootstrap = (port) ->
     breach.init(->
+      breach.register '.*', 'keybindings'
       breach.expose('init', ((src, args, cb_) ->
         console.log 'mod_vim (Vimperator port for Breach)'
-        console.log("Listening on #{port}")
-        breach.module('core').on('tabs:keyboard', keybindings)
-        breach.module('core').on('controls:keyboard', keybindings)
+        console.log "Listening on #{port}"
       ))
       breach.expose('kill', ((args, cb_) ->
         common.exit 0
