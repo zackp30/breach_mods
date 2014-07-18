@@ -26,7 +26,7 @@ class Mod_Vim
     app = express()
 
     app.use '/', express.static(__dirname + '/controls')
-    http_srv = http.createServer(app).listen(0, '127.0.0.1')
+    http_srv = http.createServer(app).listen(2009, '127.0.0.1')
     http_srv.on('listening', (->
       port = http_srv.address().port
       bootstrap(port)
