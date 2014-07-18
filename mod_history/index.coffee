@@ -8,7 +8,8 @@ common = require './lib/common.js'
 breach.init(->
   breach.expose('init', ((src, args, cb_) ->
     console.log 'mod_history (history support for breach)'
-    common.set_title "Ohey"
+    breach.module('core').call('set_title', { 'title': 'ohey '})
+
   ))
   breach.expose('kill', ((args, cb_) ->
     common.exit 0

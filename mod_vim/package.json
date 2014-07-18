@@ -1,0 +1,16 @@
+{
+  "name": "mod_vim",
+  "version": "0.1.0",
+  "main": "./index.js",
+  "dependencies": {
+    "breach_module": "0.3.x",
+    "async": "0.9.x",
+    "request": "2.36.x",
+    "coffee-script": "1.7.1",
+    "cake": "0.1.1",
+    "async": "0.9.x",
+    "express": "4.5.x",
+    "socket.io": "1.0.x",
+    "request": "2.36.x"
+  }
+}

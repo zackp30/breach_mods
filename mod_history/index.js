@@ -9,7 +9,9 @@
   breach.init(function() {
     breach.expose('init', (function(src, args, cb_) {
       console.log('mod_history (history support for breach)');
-      return common.set_title("Ohey");
+      return breach.module('core').call('set_title', {
+        'title': 'ohey '
+      });
     }));
     return breach.expose('kill', (function(args, cb_) {
       return common.exit(0);
