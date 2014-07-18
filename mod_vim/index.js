@@ -8,12 +8,17 @@
   http = require('http');
   Mod_Vim = (function(){
     Mod_Vim.displayName = 'Mod_Vim';
-    var bootstrap, setup, prototype = Mod_Vim.prototype, constructor = Mod_Vim;
+    var keybindings, bootstrap, setup, prototype = Mod_Vim.prototype, constructor = Mod_Vim;
+    keybindings = function(evt){
+      return console.log(evt.type);
+    };
     bootstrap = function(port){
       breach.init(function(){
         breach.expose('init', function(src, args, cb_){
           console.log('mod_vim (Vimperator port for Breach)');
-          return console.log("Listening on " + port);
+          console.log("Listening on " + port);
+          breach.module('core').on('tabs:keyboard', keybindings);
+          return breach.module('core').on('controls:keyboard', keybindings);
         });
         return breach.expose('kill', function(args, cb_){
           return common.exit(0);
